@@ -20,7 +20,8 @@ namespace UnrealObjectPtrTool
 
         private string GetFile(string line)
         {
-            return Regex.Match(line, @"(?<=LogCompile: ).*(?=\()").Value;
+            // Changed regex because sometimes logs do not contain LogCompile as initial start and we cannot assume this.
+            return Regex.Match(line, @"^[A-z]:.*(?=\()").Value;
         }
 
 

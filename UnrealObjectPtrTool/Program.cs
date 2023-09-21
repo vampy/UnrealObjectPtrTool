@@ -10,11 +10,14 @@ namespace UnrealObjectPtrTool
     {
         static void Main(string[] args)
         {
-            var username = GetUsernameFolder();
-            if (username == null)
-                return;
+            // No need to get username, %AppData% would do the trick.
+            string filePath = @"%AppData%\Local\UnrealBuildTool\Log_UHT.txt";
+            if (args.Length > 0)
+            {
+                filePath = args[0];
+            }
 
-            var pointersFound = ReadUHTFile(username);
+            var pointersFound = ReadUHTFile(filePath);
             if (pointersFound == null)
                 return;
 
@@ -27,23 +30,12 @@ namespace UnrealObjectPtrTool
             Console.ReadKey();
         }
 
-
-        static string GetUsernameFolder()
+        static List<string> ReadUHTFile(string FilePath)
         {
-            Console.WriteLine(@"Please inform your USERNAME -> C:\Users\USERNAME\AppData\Local\UnrealBuildTool\");
-
-            return Console.ReadLine().Trim();
-        }
-
-
-        static List<string> ReadUHTFile(string username)
-        {
-            var logFile = $@"C:\Users\{username}\AppData\Local\UnrealBuildTool\Log_UHT.txt";
-
-            if (!File.Exists(logFile))
+            if (!File.Exists(FilePath))
             {
                 Console.WriteLine();
-                Console.WriteLine($"File could not be found -> {logFile}");
+                Console.WriteLine($"File could not be found -> {FilePath}");
                 Console.ReadKey();
 
                 return null;
@@ -51,7 +43,7 @@ namespace UnrealObjectPtrTool
 
 
             var pointersFound = new List<string>();
-            var lines = File.ReadAllLines(logFile);
+            var lines = File.ReadAllLines(FilePath);
             var search = new Regex("Consider TObjectPtr as an alternative.");
 
             foreach (var line in lines)
