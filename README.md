@@ -55,11 +55,8 @@ Step - Bind super and bases
 Step - Check for recursive structs
 Step - Resolve bases
 Step - Resolve properties
-D:\Project\Source\Mita\Public\Characters\Components\PowerComponents\MPowerComponentBase.h(59): Trace: Native pointer usage in member declaration detected [[[UTexture2D*]]].  Consider TObjectPtr as an alternative.
-D:\Project\Source\Mita\Public\Characters\Components\PowerComponents\MPowerComponentBase.h(65): Trace: Native pointer usage in member declaration detected [[[UTexture2D*]]].  Consider TObjectPtr as an alternative.
-D:\Project\Source\Mita\Public\Characters\Components\PowerComponents\MPowerComponentBase.h(71): Trace: Native pointer usage in member declaration detected [[[UTexture2D*]]].  Consider TObjectPtr as an alternative.
-D:\Project\Source\Mita\Public\Characters\Components\PowerComponents\MWeaponComponent.h(77): Trace: Native pointer usage in member declaration detected [[[UParticleSystem*]]].  Consider TObjectPtr as an alternative.
-D:\Project\Source\Mita\Public\Characters\Components\PowerComponents\MWeaponComponent.h(80): Trace: Native pointer usage in member declaration detected [[[UParticleSystemComponent*]]].  Consider TObjectPtr as an alternative.
-D:\Project\Source\Mita\Public\Characters\Components\PowerComponents\MWeaponComponent.h(110): Trace: Native pointer usage in member declaration detected [[[AMWeapon*]]].  Consider TObjectPtr as an alternative.
-D:\Project\Source\Mita\Public\Characters\Components\PowerComponents\MWeaponComponent.h(113): Trace: Native pointer usage in member declaration detected [[[UMWeaponCore*]]].  Consider TObjectPtr as an alternative.
+D:\Project\Source\<ProjectName>\Public\Characters\Components\UCustomComponent.h(77): Trace: Native pointer usage in member declaration detected [[[UParticleSystem*]]].  Consider TObjectPtr as an alternative.
+D:\Project\Source\<ProjectName>\Public\Characters\Components\UCustomComponent.h(80): Trace: Native pointer usage in member declaration detected [[[UParticleSystemComponent*]]].  Consider TObjectPtr as an alternative.
+D:\Project\Source\<ProjectName>\Public\Characters\Components\UCustomComponent.h(110): Trace: Native pointer usage in member declaration detected [[[AMWeapon*]]].  Consider TObjectPtr as an alternative.
+D:\Project\Source\<ProjectName>\Public\Characters\Components\UCustomComponent.h(113): Trace: Native pointer usage in member declaration detected [[[UMWeaponCore*]]].  Consider TObjectPtr as an alternative.
 ```
