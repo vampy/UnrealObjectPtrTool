@@ -11,7 +11,7 @@ namespace UnrealObjectPtrTool
         static void Main(string[] args)
         {
             // No need to get username, %AppData% would do the trick.
-            string filePath = @"%AppData%\Local\UnrealBuildTool\Log_UHT.txt";
+            string filePath = @"%LOCALAPPDATA%\UnrealBuildTool\Log_UHT.txt";
             if (args.Length > 0)
             {
                 filePath = args[0];
@@ -32,10 +32,11 @@ namespace UnrealObjectPtrTool
 
         static List<string> ReadUHTFile(string FilePath)
         {
-            if (!File.Exists(FilePath))
+            var expandedFilePath = Environment.ExpandEnvironmentVariables(FilePath);
+            if (!File.Exists(expandedFilePath))
             {
                 Console.WriteLine();
-                Console.WriteLine($"File could not be found -> {FilePath}");
+                Console.WriteLine($"File could not be found -> {expandedFilePath}");
                 Console.ReadKey();
 
                 return null;
@@ -43,7 +44,7 @@ namespace UnrealObjectPtrTool
 
 
             var pointersFound = new List<string>();
-            var lines = File.ReadAllLines(FilePath);
+            var lines = File.ReadAllLines(expandedFilePath);
 
             // Change for UE5.5, since the log text contains a lowercase c at the beginning.
             // Example: "Error: Native pointer usage in member declaration detected [[[class SomeType*]]].  This is disallowed for the target/module, consider TObjectPtr as an alternative."
